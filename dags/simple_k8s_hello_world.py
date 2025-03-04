@@ -25,10 +25,9 @@ LOGGER = logging.getLogger("airflow.task")  # Get Airflow logger
     description='KubernetesExecutor with Taskflow API',
     schedule_interval=None,
     default_args=default_args,
-    params={'rack_name': Param(default='thor', type='string')},
 )
 def simple_k8s_hello_world():
-    @task.kubernetes(image="python:3.9", namespace="default", in_cluster=False)
+    @task.kubernetes()
     def hello_world():
         print('hello k8s')
 
