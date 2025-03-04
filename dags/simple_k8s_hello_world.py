@@ -27,7 +27,7 @@ LOGGER = logging.getLogger("airflow.task")  # Get Airflow logger
     default_args=default_args,
 )
 def simple_k8s_hello_world():
-    @task.kubernetes(image="python:3.9", namespace="airflow")
+    @task.kubernetes(image="apache/airflow:2.9.3", namespace="airflow")
     def hello_world():
         print('hello k8s')
 
